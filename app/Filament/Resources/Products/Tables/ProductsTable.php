@@ -8,6 +8,7 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
@@ -25,7 +26,11 @@ class ProductsTable
                 TextColumn::make('sku')->label('SKU')->searchable(),
                 TextColumn::make('short_description')->searchable()->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([])
+            ->filters([
+                SelectFilter::make('category_id')->label('Category')->multiple(true)->relationship('category', 'name')->preload()->searchable(),
+                SelectFilter::make('controller_type_id')->label('Controller Type')->multiple(true)->relationship('controller_type', 'name')->preload()->searchable(),
+                SelectFilter::make('motor_type_id')->label('Motor Type')->multiple(true)->relationship('motor_type', 'name')->preload()->searchable(),
+            ])
             ->recordActions([
                 EditAction::make(),
             ]);
