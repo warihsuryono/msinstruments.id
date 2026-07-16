@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Categories\Schemas;
 
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -11,20 +12,8 @@ class CategoryForm
     {
         return $schema
             ->components([
-                TextInput::make('parent_id')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
+                Select::make('parent_id')->label('Parent Category')->relationship('parentCategory', 'name'),
                 TextInput::make('name'),
-                TextInput::make('deleted_by')
-                    ->numeric()
-                    ->default(0),
-                TextInput::make('created_by')
-                    ->numeric()
-                    ->default(0),
-                TextInput::make('updated_by')
-                    ->numeric()
-                    ->default(0),
             ]);
     }
 }
