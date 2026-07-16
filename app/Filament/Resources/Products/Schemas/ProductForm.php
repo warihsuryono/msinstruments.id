@@ -14,30 +14,13 @@ class ProductForm
         return $schema
             ->components([
                 TextInput::make('code'),
-                Select::make('category_id')
-                    ->relationship('category', 'name')
-                    ->required(),
-                Select::make('controller_type_id')
-                    ->relationship('controller_type', 'name')
-                    ->required(),
-                Select::make('motor_type_id')
-                    ->relationship('motor_type', 'name')
-                    ->default(0),
+                Select::make('category_id')->relationship('category', 'name')->required(),
+                Select::make('controller_type_id')->relationship('controller_type', 'name')->required(),
+                Select::make('motor_type_id')->relationship('motor_type', 'name')->default(0),
                 TextInput::make('name'),
-                TextInput::make('sku')
-                    ->label('SKU'),
-                TextInput::make('short_description'),
-                Textarea::make('description')
-                    ->columnSpanFull(),
-                TextInput::make('deleted_by')
-                    ->numeric()
-                    ->default(0),
-                TextInput::make('created_by')
-                    ->numeric()
-                    ->default(0),
-                TextInput::make('updated_by')
-                    ->numeric()
-                    ->default(0),
+                TextInput::make('sku')->label('SKU'),
+                Textarea::make('short_description'),
+                Textarea::make('description')->columnSpanFull(),
             ]);
     }
 }
