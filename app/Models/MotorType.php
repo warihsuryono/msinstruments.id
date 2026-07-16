@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class MotorTypes extends Model
+class MotorType extends Model
 {
     use HasFactory, SoftDeletes, crudBy;
 

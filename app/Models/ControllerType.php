@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ControllerTypes extends Model
+class ControllerType extends Model
 {
     use HasFactory, SoftDeletes, crudBy;
 

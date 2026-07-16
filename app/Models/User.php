@@ -48,14 +48,11 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function canAccessPanel(Panel $panel): bool
     {
-        if (config("app.env") == "production") {
-            return str_ends_with($this->email, "avo-dis.test");
-        }
         return true;
     }
 
     public function getFilamentAvatarUrl(): string
     {
-        return $this->photo ?? asset('img/' . env('PANEL_PATH') . '_icon.png');
+        return $this->photo ?? asset('img/favicon.png');
     }
 }

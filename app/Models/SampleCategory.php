@@ -12,11 +12,6 @@ class SampleCategory extends Model
 {
     use HasFactory, SoftDeletes, crudBy;
 
-    public function sample_type(): HasMany
-    {
-        return $this->hasMany(SampleType::class, 'sample_category_id');
-    }
-
     public function parameter(): HasMany
     {
         return $this->hasMany(Parameter::class, 'sample_category_id');

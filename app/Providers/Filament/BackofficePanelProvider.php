@@ -27,6 +27,10 @@ class BackofficePanelProvider extends PanelProvider
             ->default()
             ->id('backoffice')
             ->path('backoffice')
+            ->favicon(asset('img/favicon.png'))
+            ->brandLogo(asset('img/logo_msi.png'))
+            ->brandLogoHeight('50px')
+            ->brandName('msinstruments.id')
             ->login()
             ->colors([
                 'primary' => Color::Amber,
@@ -39,7 +43,6 @@ class BackofficePanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
                 AccountWidget::class,
-                FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

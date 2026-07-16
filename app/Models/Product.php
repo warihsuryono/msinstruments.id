@@ -40,16 +40,11 @@ class Product extends Model
 
     public function controller_type(): BelongsTo
     {
-        return $this->belongsTo(ControllerTypes::class, 'controller_type_id');
+        return $this->belongsTo(ControllerType::class, 'controller_type_id');
     }
 
     public function motor_type(): BelongsTo
     {
-        return $this->belongsTo(MotorTypes::class, 'motor_type_id');
-    }
-
-    public function sample_type(): BelongsTo
-    {
-        return $this->belongsTo(SampleType::class, 'sample_type_id');
+        return $this->belongsTo(MotorType::class, 'motor_type_id');
     }
 }
