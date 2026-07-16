@@ -12,20 +12,9 @@ class ParameterForm
     {
         return $schema
             ->components([
-                Select::make('sample_category_id')
-                    ->relationship('sample_category', 'name')
-                    ->required(),
+                Select::make('sample_category_id')->relationship('sample_category', 'name')->required(),
                 TextInput::make('code'),
                 TextInput::make('name'),
-                TextInput::make('deleted_by')
-                    ->numeric()
-                    ->default(0),
-                TextInput::make('created_by')
-                    ->numeric()
-                    ->default(0),
-                TextInput::make('updated_by')
-                    ->numeric()
-                    ->default(0),
             ]);
     }
 }
