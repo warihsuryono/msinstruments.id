@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Models;
+
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Traits\crudBy;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
+use Filament\Panel;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable implements FilamentUser, HasAvatar
+{
+    use HasFactory, Notifiable, SoftDeletes, crudBy;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        if (config("app.env") == "production") {
+            return str_ends_with($this->email, "avo-dis.test");
+        }
+        return true;
+    }
+
+    public function getFilamentAvatarUrl(): string
+    {
+        return $this->photo ?? asset('img/' . env('PANEL_PATH') . '_icon.png');
+    }
+}
