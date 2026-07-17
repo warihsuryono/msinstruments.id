@@ -2,24 +2,14 @@
 
 namespace App\Filament\Resources\Products\RelationManagers;
 
-use Filament\Actions\AssociateAction;
-use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\DissociateAction;
-use Filament\Actions\DissociateBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Actions\ForceDeleteAction;
-use Filament\Actions\ForceDeleteBulkAction;
-use Filament\Actions\RestoreAction;
-use Filament\Actions\RestoreBulkAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -33,10 +23,10 @@ class ProductParameterRelationManager extends RelationManager
     {
         return $schema
             ->components([
-                Select::make('parameter_id')->required()->allowHtml(true)->searchable()->preload()
+                Select::make('parameter_id')->label('Name')->required()->allowHtml(true)->searchable()->preload()
                     ->relationship(
-                        name: 'parameter',
-                        titleAttribute: 'name',
+                        'parameter',
+                        'name',
                         modifyQueryUsing: function ($query) {
                             $query->where('sample_category_id', $this->ownerRecord->sample_category_id);
                         }
@@ -55,33 +45,21 @@ class ProductParameterRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('Parameters')
             ->columns([
-                TextColumn::make('parameter.name')->searchable(),
-                TextColumn::make('range')->searchable(),
-                TextColumn::make('principle')->searchable(),
-                TextColumn::make('resolution')->searchable(),
-                TextColumn::make('accuracy')->searchable(),
-                TextColumn::make('response_time')->searchable(),
-                TextColumn::make('specification')->searchable(),
+                TextColumn::make('parameter.name')->label('Name')->html(),
+                TextColumn::make('range')->html(),
+                TextColumn::make('principle')->html(),
+                TextColumn::make('resolution')->html(),
+                TextColumn::make('accuracy')->html(),
+                TextColumn::make('response_time')->html(),
+                TextColumn::make('specification')->html(),
             ])
             ->filters([])
             ->headerActions([
                 CreateAction::make()->label('New Parameter'),
-                AssociateAction::make(),
             ])
             ->recordActions([
                 EditAction::make(),
-                DissociateAction::make(),
                 DeleteAction::make(),
-                ForceDeleteAction::make(),
-                RestoreAction::make(),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DissociateBulkAction::make(),
-                    DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
-                ]),
             ])
             ->modifyQueryUsing(fn(Builder $query) => $query
                 ->withoutGlobalScopes([
