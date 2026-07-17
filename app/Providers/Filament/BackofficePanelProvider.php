@@ -31,6 +31,7 @@ class BackofficePanelProvider extends PanelProvider
             ->brandLogoHeight('50px')
             ->brandName('msinstruments.id')
             ->login()
+            ->sidebarFullyCollapsibleOnDesktop()
             ->colors([
                 'primary' => Color::Amber,
             ])
