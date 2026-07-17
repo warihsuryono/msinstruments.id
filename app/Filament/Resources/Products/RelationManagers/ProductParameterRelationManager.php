@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ProductParameterRelationManager extends RelationManager
 {
     protected static string $relationship = 'product_parameter';
-    protected static ?string $title = 'Parameter';
+    protected static ?string $title = 'Parameters';
 
     public function form(Schema $schema): Schema
     {
