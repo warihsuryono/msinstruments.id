@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Products;
 use App\Filament\Resources\Products\Pages\CreateProduct;
 use App\Filament\Resources\Products\Pages\EditProduct;
 use App\Filament\Resources\Products\Pages\ListProducts;
+use App\Filament\Resources\Products\RelationManagers\ProductImageRelationManager;
 use App\Filament\Resources\Products\RelationManagers\ProductParameterRelationManager;
 use App\Filament\Resources\Products\RelationManagers\ProductPriceRelationManager;
 use App\Filament\Resources\Products\RelationManagers\ProductSpecificationRelationManager;
@@ -43,6 +44,7 @@ class ProductResource extends Resource
             ProductParameterRelationManager::class,
             ProductSpecificationRelationManager::class,
             ProductPriceRelationManager::class,
+            ProductImageRelationManager::class,
         ];
     }
 
