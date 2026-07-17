@@ -38,6 +38,11 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
+    public function sample_category(): BelongsTo
+    {
+        return $this->belongsTo(SampleCategory::class, 'sample_category_id');
+    }
+
     public function controller_type(): BelongsTo
     {
         return $this->belongsTo(ControllerType::class, 'controller_type_id');
