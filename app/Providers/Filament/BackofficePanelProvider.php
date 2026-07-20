@@ -24,7 +24,6 @@ class BackofficePanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->defaultThemeMode('light')
             ->id('backoffice')
             ->path('backoffice')
             ->favicon(asset('img/favicon.png'))
