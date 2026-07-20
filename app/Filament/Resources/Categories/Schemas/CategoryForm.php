@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Categories\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
@@ -14,6 +15,8 @@ class CategoryForm
             ->components([
                 Select::make('parent_id')->label('Parent Category')->relationship('parentCategory', 'name'),
                 TextInput::make('name'),
+                TextInput::make('popular_seq')->numeric(),
+                FileUpload::make('image')->directory('product_images')->image()->imageEditor(),
             ]);
     }
 }

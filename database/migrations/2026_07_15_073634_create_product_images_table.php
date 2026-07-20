@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -21,6 +22,22 @@ return new class extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+
+        DB::table('product_images')->insert(['product_id' => 1, 'image' => 'product_images/01KXQHKKK0V5R8S69D06Z5172C.jpg']);
+        DB::table('product_images')->insert(['product_id' => 9, 'image' => 'product_images/01KXQHW55Z8QWRWVJWAVJC2J81.png']);
+        DB::table('product_images')->insert(['product_id' => 9, 'image' => 'product_images/01KXQHWPR7GWYXDJYT1KNG66S2.jpg']);
+        DB::table('product_images')->insert(['product_id' => 8, 'image' => 'product_images/01KXQJVRB0TMANXQGG21QZ76W3.png']);
+        DB::table('product_images')->insert(['product_id' => 7, 'image' => 'product_images/01KXQJX6RDZN6XY1C7P368RGED.png']);
+        DB::table('product_images')->insert(['product_id' => 9, 'image' => 'product_images/01KXQNK14G39TEE5D2FX8FCP5Z.jpg']);
+        DB::table('product_images')->insert(['product_id' => 9, 'image' => 'product_images/01KXQNM1ZR6P381VQ494MM75PB.jpg']);
+        DB::table('product_images')->insert(['product_id' => 8, 'image' => 'product_images/01KXQNMS9DA10WFKP9N6S69C6W.jpg']);
+        DB::table('product_images')->insert(['product_id' => 8, 'image' => 'product_images/01KXQNNREC342NTC9D3HHR8VPR.jpg']);
+        DB::table('product_images')->insert(['product_id' => 6, 'image' => 'product_images/01KXQPM4TEKHTTVWCGRCK4BP5C.jpg']);
+        DB::table('product_images')->insert(['product_id' => 5, 'image' => 'product_images/01KXQPPPDCHYHYAANVFYTEDX1E.jpg']);
+        DB::table('product_images')->insert(['product_id' => 4, 'image' => 'product_images/01KXQPWQ6H47A3KRDETTMN6MZN.jpg']);
+        DB::table('product_images')->insert(['product_id' => 3, 'image' => 'product_images/01KXQPYDAY84XH3YJDN6M46ZED.jpg']);
+        DB::table('product_images')->insert(['product_id' => 2, 'image' => 'product_images/01KXQQ0S8CADB57SJXHTKJ18JF.jpg']);
+        DB::table('product_images')->insert(['product_id' => 10, 'image' => 'product_images/01KXQQ3VKRM8S5FK6NACSXWGHB.jpg']);
     }
 
     /**
