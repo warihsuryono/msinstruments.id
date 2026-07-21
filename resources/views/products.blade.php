@@ -2,6 +2,11 @@
 
 @section('content')
     <section class="py-16 bg-gray-100" id="browse_product">
+        <!-- TITLE -->
+        <div class="max-w-7xl mx-auto px-6 mb-10 text-center">
+            <h2 class="text-3xl font-bold">PRODUCTS</h2>
+        </div>
+
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
 
             <!-- SIDEBAR FILTER -->
