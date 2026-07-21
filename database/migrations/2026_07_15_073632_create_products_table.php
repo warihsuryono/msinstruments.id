@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('code')->nullable()->default('');
             $table->foreignId('category_id')->constrained(table: 'categories', indexName: 'category_id')->default(1);
-            $table->foreignId('sample_category_id')->constrained(table: 'sample_categories', indexName: 'product_sample_category_id')->default(1);
+            $table->foreignId('sample_category_id')->constrained(table: 'sample_categories', indexName: 'productysample_category_id')->default(1);
             $table->foreignId('controller_type_id')->constrained(table: 'controller_types', indexName: 'controller_type_id')->default(1);
             $table->unsignedBigInteger('motor_type_id')->constrained(table: 'motor_types', indexName: 'motor_type_id')->default(0)->nullable();
             $table->string('name')->nullable()->default('');
@@ -62,6 +62,8 @@ return new class extends Migration
         DB::table('products')->insert(['code' => 'MS-002-IDS-PLUS', 'sample_category_id' => 1, 'category_id' => 8, 'controller_type_id' => 1, 'motor_type_id' => 1, 'name' => 'Isokinetic Dust Sampler Method 5 & 29', 'short_description' => 'Isokinetic Dust Sampler Method 5 & 29 is a particulate and metals sampling instrument designed for industrial stack emission monitoring, complying with SNI 7117.17:2009, SNI 7117.20:2009, and USEPA Methods 5 & 29.']);
 
         DB::table('products')->insert(['code' => 'MS-009-CEMS', 'sample_category_id' => 3, 'category_id' => 9, 'controller_type_id' => 2, 'motor_type_id' => 1, 'name' => 'Continuous Emission Monitoring System (CEMS)', 'short_description' => 'A Continuous Emission Monitoring System (CEMS) is an integrated set of instruments and equipment used to measure gas or particulate matter concentrations and/or emission rates.']);
+
+        DB::table('products')->insert(['code' => 'PROD-HVASDPM25-002', 'sample_category_id' =>  1, 'category_id' => 11, 'controller_type_id' => 2, 'motor_type_id' => 1, 'name' => 'Inlet PM  2.5 digital']);
     }
 
     /**
