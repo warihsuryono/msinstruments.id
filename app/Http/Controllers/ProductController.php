@@ -19,18 +19,30 @@ class ProductController extends Controller
             ['name' => 'CEMS', 'url' => 'products?sample_category_id[]=3'],
         ];
         $popular_categories = Category::where('popular_seq', '>', 0)->orderBy('popular_seq')->get();
-        // $categories = Category::where('id', '>', 0)->orderBy('id')->get();
+        $categories = Category::where('id', '>', 0)->orderBy('id')->get();
         $sample_categories = SampleCategory::orderBy('id')->get();
         $controller_types = ControllerType::orderBy('id')->get();
         $motor_types = MotorType::orderBy('id')->get();
 
-        $categoryIds = $request->input('category_id', []);
+        $category_ids = $request->input('category_id', []);
+        $sample_category_ids = $request->input('sample_category_id', []);
+        $controller_type_ids = $request->input('controller_type_id', []);
+        $motor_type_ids = $request->input('motor_type_id', []);
 
-        $products = Product::when($categoryIds, function ($q) use ($categoryIds) {
-            $q->whereIn('category_id', $categoryIds);
-        })->latest()->get();
-
-        $categories = Category::all();
+        $products = Product::query()
+            ->when(!empty($category_ids), function ($q) use ($category_ids) {
+                $q->whereIn('category_id', $category_ids);
+            })
+            ->when(!empty($sample_category_ids), function ($q) use ($sample_category_ids) {
+                $q->whereIn('sample_category_id', $sample_category_ids);
+            })
+            ->when(!empty($controller_type_ids), function ($q) use ($controller_type_ids) {
+                $q->whereIn('controller_type_id', $controller_type_ids);
+            })
+            ->when(!empty($motor_type_ids), function ($q) use ($motor_type_ids) {
+                $q->whereIn('motor_type_id', $motor_type_ids);
+            })
+            ->get();
 
         $data = [
             'menus' => $menus,
