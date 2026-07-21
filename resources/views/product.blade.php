@@ -68,14 +68,14 @@
 
                     <tbody>
 
-                        @if (!empty($product->specifications))
-                            @foreach ($product->specifications as $key => $value)
+                        @if (!empty($product->product_specification))
+                            @foreach ($product->product_specification as $specification)
                                 <tr class="border-b">
                                     <td class="p-4 font-semibold w-1/3 bg-gray-50">
-                                        {{ $key }}
+                                        {!! $specification->name !!}
                                     </td>
                                     <td class="p-4 text-gray-600">
-                                        {{ $value }}
+                                        {!! $specification->specification !!}
                                     </td>
                                 </tr>
                             @endforeach

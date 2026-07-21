@@ -208,8 +208,8 @@
     {{-- ABOUT --}}
     <section id="about" class="py-20">
         <div class="max-w-5xl mx-auto text-center px-6">
-            <h3 class="text-3xl font-bold mb-6">Who We Are</h3>
-            <p class="text-gray-600">
+            <h3 class="text-3xl font-bold mb-6 text-teal-700">Who We Are</h3>
+            <p class="text-teal-700">
                 We deliver reliable solutions for water, soil, and air quality testing. From high-quality instruments to
                 professional laboratory equipment repair services, we support your environmental monitoring needs.
             </p>
@@ -230,13 +230,13 @@
             <div class="grid md:grid-cols-3 gap-8 text-center">
 
                 <!-- ADDRESS -->
-                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition text-left">
+                <div class="bg-teal-800 p-6 rounded-lg hover:bg-teal-900 transition text-left">
                     <h4 class="text-xl font-semibold mb-6 text-center">📍 Address</h4>
 
                     <!-- HEAD OFFICE -->
                     <div class="mb-4">
                         <p class="font-semibold text-white">🏢 Head Office</p>
-                        <p class="text-gray-400 text-sm">
+                        <p class="text-white text-sm">
                             Ruko Ciledug Mas<br>
                             Jl. HOS Cokroaminoto No.C5<br>
                             Sudimara Timur, Kec. Ciledug
@@ -247,7 +247,7 @@
                     <!-- BRANCH -->
                     <div class="mb-4">
                         <p class="font-semibold text-white">🏬 Branch Office</p>
-                        <p class="text-gray-400 text-sm">
+                        <p class="text-white text-sm">
                             Dusun Balongjarak Desa Balonggarut<br>
                             RT 004 RW 02 Kec.Krembung<br>
                             Kab.Sidoarjo Jawa Timur
@@ -257,7 +257,7 @@
                     <!-- FACTORY -->
                     <div>
                         <p class="font-semibold text-white">🏭 Factory</p>
-                        <p class="text-gray-400 text-sm">
+                        <p class="text-white text-sm">
                             Duta Indah Starhub<br>
                             Jl Saluran Irigasi Cisadane Timur Blok X17<br>
                             Kec. Benda, Kota Tangerang, Banten 15123
@@ -266,13 +266,13 @@
                 </div>
 
                 <!-- PHONE -->
-                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition text-left">
+                <div class="bg-teal-800 p-6 rounded-lg hover:bg-teal-900 transition text-left">
                     <h4 class="text-xl font-semibold mb-6 text-center">📞 Contact Numbers</h4>
 
                     <!-- HOTLINE 1 -->
                     <div class="mb-3">
                         <p class="font-semibold text-white">Hotline 1</p>
-                        <a href="tel:+6281234567890" class="text-gray-400 text-sm hover:text-white">
+                        <a href="tel:+6281234567890" class="text-white text-sm hover:text-white">
                             +62 822-1111-2335
                         </a>
                     </div>
@@ -280,7 +280,7 @@
                     <!-- HOTLINE 2 -->
                     <div class="mb-3">
                         <p class="font-semibold text-white">Hotline 2</p>
-                        <a href="tel:+6289876543210" class="text-gray-400 text-sm hover:text-white">
+                        <a href="tel:+6289876543210" class="text-white text-sm hover:text-white">
                             +62 857-7556-1612
                         </a>
                     </div>
@@ -288,7 +288,7 @@
                     <!-- PHONE -->
                     <div class="mb-3">
                         <p class="font-semibold text-white">Phone</p>
-                        <a href="tel:+622112345678" class="text-gray-400 text-sm hover:text-white">
+                        <a href="tel:+622112345678" class="text-white text-sm hover:text-white">
                             +62 21 22278639
                         </a>
                     </div>
@@ -296,16 +296,16 @@
                     <!-- FAX -->
                     <div>
                         <p class="font-semibold text-white">Fax</p>
-                        <p class="text-gray-400 text-sm">
+                        <p class="text-white text-sm">
                             +62 21 22278639
                         </p>
                     </div>
                 </div>
 
                 <!-- EMAIL -->
-                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
+                <div class="bg-teal-800 p-6 rounded-lg hover:bg-teal-900 transition">
                     <h4 class="text-xl font-semibold mb-2">✉️ Email</h4>
-                    <p class="text-gray-400">
+                    <p class="text-white">
                         majuselaras@gmail.com
                     </p>
                 </div>
@@ -314,9 +314,9 @@
 
         </div>
     </section>
-
+    <br>
     {{-- FOOTER --}}
-    <footer class="bg-gray-900 text-gray-400 py-10 text-center">
+    <footer class="bg-teal-800 text-white py-10 text-center">
         <p>© {{ date('Y') }} PT Maju Selaras Instrumindo. All rights reserved.</p>
     </footer>
 
