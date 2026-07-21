@@ -68,7 +68,7 @@
 
                     <tbody>
 
-                        @if (!empty($product->product_specification))
+                        @if ($product->product_specification->count())
                             @foreach ($product->product_specification as $specification)
                                 <tr class="border-b">
                                     <td class="p-4 font-semibold w-1/3 bg-gray-50">
