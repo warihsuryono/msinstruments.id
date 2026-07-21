@@ -7,10 +7,11 @@ use App\Models\ControllerType;
 use App\Models\MotorType;
 use App\Models\Product;
 use App\Models\SampleCategory;
+use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $menus = [
             ['name' => 'Air Sampler', 'url' => 'products?sample_category_id[]=1'],
@@ -18,17 +19,19 @@ class HomeController extends Controller
             ['name' => 'CEMS', 'url' => 'products?sample_category_id[]=3'],
         ];
         $popular_categories = Category::where('popular_seq', '>', 0)->orderBy('popular_seq')->get();
-        $categories = Category::where('id', '>', 0)->orderBy('id')->get();
+        // $categories = Category::where('id', '>', 0)->orderBy('id')->get();
         $sample_categories = SampleCategory::orderBy('id')->get();
         $controller_types = ControllerType::orderBy('id')->get();
         $motor_types = MotorType::orderBy('id')->get();
-        $query = null;
-        foreach ([1, 3, 4, 8] as $category_id) {
-            $sub = Product::where('category_id', $category_id)->inRandomOrder()->limit(3);
-            if ($query === null) $query = $sub;
-            else $query = $query->unionAll($sub);
-        }
-        $products = $query->get();
+
+        $categoryIds = $request->input('category_id', []);
+
+        $products = Product::when($categoryIds, function ($q) use ($categoryIds) {
+            $q->whereIn('category_id', $categoryIds);
+        })->latest()->get();
+
+        $categories = Category::all();
+
         $data = [
             'menus' => $menus,
             'popular_categories' => $popular_categories,
@@ -38,6 +41,7 @@ class HomeController extends Controller
             'motor_types' => $motor_types,
             'products' => $products
         ];
-        return view('home', $data);
+
+        return view('products', $data);
     }
 }

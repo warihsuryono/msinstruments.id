@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company - Air Monitoring</title>
+    <title>MSInstruments</title>
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
@@ -28,9 +28,9 @@
                         class="text-teal-700 hover:text-teal-500 bg-white px-6 pb-1 rounded-full font-semibold">{{ $menu['name'] }}</a>
                 @endforeach
 
-                <a href="about"
+                <a href="#about"
                     class="bg-white text-teal-700 hover:text-teal-500 px-6 pb-1 rounded-full font-semibold">About Us</a>
-                <a href="contact"
+                <a href="#contact"
                     class="bg-white text-teal-700 hover:text-teal-500 px-6 pb-1 rounded-full font-semibold">Contact
                     Us</a>
             </nav>
@@ -54,8 +54,8 @@
                 @foreach ($menus as $menu)
                     <a href="{{ $menu['url'] }}" class="hover:text-blue-600">{{ $menu['name'] }}</a>
                 @endforeach
-                <a href="about" class="hover:text-blue-600">About Us</a>
-                <a href="contact" class="hover:text-blue-600">Contact</a>
+                <a href="#about" class="hover:text-blue-600">About Us</a>
+                <a href="#contact" class="hover:text-blue-600">Contact</a>
             </nav>
         </div>
         </div>
@@ -206,7 +206,7 @@
     </section>
 
     {{-- ABOUT --}}
-    <section class="py-20">
+    <section id="about" class="py-20">
         <div class="max-w-5xl mx-auto text-center px-6">
             <h3 class="text-3xl font-bold mb-6">Who We Are</h3>
             <p class="text-gray-600">
@@ -216,7 +216,7 @@
         </div>
     </section>
 
-    <section class="py-20 bg-teal-700 text-white">
+    <section id="contact" class="py-20 bg-teal-700 text-white">
         <div class="max-w-7xl mx-auto px-6">
 
             <!-- TITLE -->
