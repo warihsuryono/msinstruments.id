@@ -13,6 +13,7 @@
                         @foreach ($categories as $category)
                             <label class="flex items-center mb-2 text-sm">
                                 <input type="checkbox" class="mr-2" name="category_id[]" value="{{ $category->id }}"
+                                    {{ in_array($category->id, request('category_id', [])) ? 'checked' : '' }}
                                     onchange="this.form.submit()">
                                 {{ $category->name }}
                             </label>
@@ -24,6 +25,7 @@
                         @foreach ($sample_categories as $sample_category)
                             <label class="flex items-center mb-2 text-sm">
                                 <input type="checkbox" class="mr-2" name="sample_category_id[]"
+                                    {{ in_array($sample_category->id, request('sample_category_id', [])) ? 'checked' : '' }}
                                     value="{{ $sample_category->id }}" onchange="this.form.submit()">
                                 {{ $sample_category->name }}
                             </label>
@@ -35,6 +37,7 @@
                         @foreach ($controller_types as $controller_type)
                             <label class="flex items-center mb-2 text-sm">
                                 <input type="checkbox" class="mr-2" name="controller_type_id[]"
+                                    {{ in_array($controller_type->id, request('controller_type_id', [])) ? 'checked' : '' }}
                                     value="{{ $controller_type->id }}" onchange="this.form.submit()">
                                 {{ $controller_type->name }}
                             </label>
@@ -46,6 +49,7 @@
                         @foreach ($motor_types as $motor_type)
                             <label class="flex items-center mb-2 text-sm">
                                 <input type="checkbox" class="mr-2" name="motor_type_id[]" value="{{ $motor_type->id }}"
+                                    {{ in_array($motor_type->id, request('motor_type_id', [])) ? 'checked' : '' }}
                                     onchange="this.form.submit()">
                                 {{ $motor_type->name }}
                             </label>
