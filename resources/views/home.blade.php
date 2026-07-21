@@ -90,7 +90,7 @@
                     Proudly Local, Built to Global Standards
                 </p>
 
-                <a href="#" class="bg-blue-600 px-6 py-3 rounded hover:bg-blue-700">
+                <a href="#" class="bg-teal-600 px-6 py-3 rounded hover:bg-teal-700">
                     Browse Product
                 </a>
             </div>
@@ -105,7 +105,7 @@
             </h3>
 
             <div class="grid md:grid-cols-3 gap-10">
-                @foreach ($categories as $category)
+                @foreach ($popular_categories as $category)
                     <div class="text-center">
                         <div class="h-48 bg-gray-200 mb-4">
                             <img src="{{ asset('storage/' . $category['image']) }}"
@@ -119,6 +119,83 @@
     </section>
 
 
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+
+            <!-- SIDEBAR FILTER -->
+            <div class="md:col-span-1 bg-white p-6 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-6">Filters</h3>
+
+                <div class="mb-6">
+                    <h4 class="font-semibold mb-3">Category</h4>
+                    @foreach ($categories as $category)
+                        <label class="flex items-center mb-2 text-sm">
+                            <input type="checkbox" class="mr-2">
+                            {{ $category->name }}
+                        </label>
+                    @endforeach
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="font-semibold mb-3">Sample Type</h4>
+                    @foreach ($sample_categories as $sample_category)
+                        <label class="flex items-center mb-2 text-sm">
+                            <input type="checkbox" class="mr-2">
+                            {{ $sample_category->name }}
+                        </label>
+                    @endforeach
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="font-semibold mb-3">Controller Type</h4>
+                    @foreach ($controller_types as $controller_type)
+                        <label class="flex items-center mb-2 text-sm">
+                            <input type="checkbox" class="mr-2">
+                            {{ $controller_type->name }}
+                        </label>
+                    @endforeach
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="font-semibold mb-3">Controller Type</h4>
+                    @foreach ($motor_types as $motor_type)
+                        <label class="flex items-center mb-2 text-sm">
+                            <input type="checkbox" class="mr-2">
+                            {{ $motor_type->name }}
+                        </label>
+                    @endforeach
+                </div>
+            </div>
+
+            <!-- PRODUCT LIST -->
+            <div class="md:col-span-3">
+
+                <!-- HEADER -->
+                {{-- <div class="flex justify-between items-center mb-6">
+                    <p class="text-gray-600">{{ count($products) }} Items</p>
+
+                    <div class="flex items-center space-x-4 text-sm">
+                        <span>View: 24 / Page</span>
+                        <span>Sort: Featured</span>
+                    </div>
+                </div> --}}
+
+                <!-- GRID -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    @foreach ($products as $product)
+                        <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+                            <img src="{{ asset('storage/' . @$product->product_image()->first()->image) }}"
+                                class="w-full h-48 object-contain mb-4">
+                            <h4 class="font-semibold mb-2 text-sm">{{ $product->name }}</h4>
+                            <p class="text-gray-500 text-sm mb-2">{{ $product->short_description }}</p>
+                        </div>
+                    @endforeach
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 
     {{-- ABOUT --}}
     <section class="py-20">
@@ -131,13 +208,103 @@
         </div>
     </section>
 
-    {{-- CTA --}}
-    <section class="py-20 bg-blue-600 text-white text-center">
-        <h3 class="text-3xl font-bold mb-4">Ready to Talk?</h3>
-        <p class="mb-6">Contact our team for consultation</p>
-        <a href="#" class="bg-white text-blue-600 px-6 py-3 rounded">
-            Contact Us
-        </a>
+    <section class="py-20 bg-teal-700 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- TITLE -->
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold">Contact Us</h3>
+                <p class="text-white mt-2">
+                    Get in touch with our team for inquiries and support
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+
+                <!-- ADDRESS -->
+                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition text-left">
+                    <h4 class="text-xl font-semibold mb-6 text-center">📍 Address</h4>
+
+                    <!-- HEAD OFFICE -->
+                    <div class="mb-4">
+                        <p class="font-semibold text-white">🏢 Head Office</p>
+                        <p class="text-gray-400 text-sm">
+                            Ruko Ciledug Mas<br>
+                            Jl. HOS Cokroaminoto No.C5<br>
+                            Sudimara Timur, Kec. Ciledug
+                            <br>Kota Tangerang, Banten 15151
+                        </p>
+                    </div>
+
+                    <!-- BRANCH -->
+                    <div class="mb-4">
+                        <p class="font-semibold text-white">🏬 Branch Office</p>
+                        <p class="text-gray-400 text-sm">
+                            Dusun Balongjarak Desa Balonggarut<br>
+                            RT 004 RW 02 Kec.Krembung<br>
+                            Kab.Sidoarjo Jawa Timur
+                        </p>
+                    </div>
+
+                    <!-- FACTORY -->
+                    <div>
+                        <p class="font-semibold text-white">🏭 Factory</p>
+                        <p class="text-gray-400 text-sm">
+                            Duta Indah Starhub<br>
+                            Jl Saluran Irigasi Cisadane Timur Blok X17<br>
+                            Kec. Benda, Kota Tangerang, Banten 15123
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PHONE -->
+                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition text-left">
+                    <h4 class="text-xl font-semibold mb-6 text-center">📞 Contact Numbers</h4>
+
+                    <!-- HOTLINE 1 -->
+                    <div class="mb-3">
+                        <p class="font-semibold text-white">Hotline 1</p>
+                        <a href="tel:+6281234567890" class="text-gray-400 text-sm hover:text-white">
+                            +62 822-1111-2335
+                        </a>
+                    </div>
+
+                    <!-- HOTLINE 2 -->
+                    <div class="mb-3">
+                        <p class="font-semibold text-white">Hotline 2</p>
+                        <a href="tel:+6289876543210" class="text-gray-400 text-sm hover:text-white">
+                            +62 857-7556-1612
+                        </a>
+                    </div>
+
+                    <!-- PHONE -->
+                    <div class="mb-3">
+                        <p class="font-semibold text-white">Phone</p>
+                        <a href="tel:+622112345678" class="text-gray-400 text-sm hover:text-white">
+                            +62 21 22278639
+                        </a>
+                    </div>
+
+                    <!-- FAX -->
+                    <div>
+                        <p class="font-semibold text-white">Fax</p>
+                        <p class="text-gray-400 text-sm">
+                            +62 21 22278639
+                        </p>
+                    </div>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition">
+                    <h4 class="text-xl font-semibold mb-2">✉️ Email</h4>
+                    <p class="text-gray-400">
+                        majuselaras@gmail.com
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
     </section>
 
     {{-- FOOTER --}}
