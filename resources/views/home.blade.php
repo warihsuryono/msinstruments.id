@@ -190,7 +190,7 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     @foreach ($products as $product)
                         <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
-                            onclick="window.location='/product_detail/{{ $product->id }}';">
+                            onclick="window.location='/product/{{ $product->id }}';">
                             <img src="{{ asset('storage/' . @$product->product_image()->first()->image) }}"
                                 class="w-full h-48 object-contain mb-4">
                             <h4 class="font-semibold mb-2 text-sm">{{ $product->name }}</h4>
