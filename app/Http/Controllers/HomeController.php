@@ -24,7 +24,7 @@ class HomeController extends Controller
         $motor_types = MotorType::orderBy('id')->get();
         $query = null;
         foreach ([1, 3, 4, 8] as $category_id) {
-            $sub = Product::where('category_id', $category_id)->latest()->limit(3);
+            $sub = Product::where('category_id', $category_id)->inRandomOrder()->limit(3);
             if ($query === null) $query = $sub;
             else $query = $query->unionAll($sub);
         }
