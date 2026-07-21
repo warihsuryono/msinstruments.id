@@ -66,14 +66,10 @@
 
         <!-- SLIDES -->
         <div id="slider" class="absolute inset-0">
-            <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100"
-                style="background-image: url('{{ asset('images/home01.png') }}')"></div>
-
-            <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0"
-                style="background-image: url('{{ asset('images/home02.png') }}')"></div>
-
-            <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0"
-                style="background-image: url('{{ asset('images/home03.png') }}')"></div>
+            @foreach ($hero_images as $key => $hero_image)
+                <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 {{ $key == 0 ? 'opacity-100' : 'opacity-0' }}"
+                    style="background-image: url('{{ asset('storage/' . $hero_image->image) }}')"></div>
+            @endforeach
         </div>
 
         <!-- OVERLAY -->

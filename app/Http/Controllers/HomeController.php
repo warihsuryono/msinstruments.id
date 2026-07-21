@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\ControllerType;
+use App\Models\HeroImage;
 use App\Models\MotorType;
 use App\Models\Product;
 use App\Models\SampleCategory;
@@ -17,6 +18,7 @@ class HomeController extends Controller
             ['name' => 'Water Sampler', 'url' => 'products?sample_category_id[]=2'],
             ['name' => 'CEMS', 'url' => 'products?sample_category_id[]=3'],
         ];
+        $hero_images = HeroImage::all();
         $popular_categories = Category::where('popular_seq', '>', 0)->orderBy('popular_seq')->get();
         $categories = Category::where('id', '>', 0)->orderBy('id')->get();
         $sample_categories = SampleCategory::orderBy('id')->get();
@@ -31,6 +33,7 @@ class HomeController extends Controller
         $products = $query->get();
         $data = [
             'menus' => $menus,
+            'hero_images' => $hero_images,
             'popular_categories' => $popular_categories,
             'categories' => $categories,
             'sample_categories' => $sample_categories,
