@@ -157,7 +157,7 @@
                 </div>
 
                 <div class="mb-6">
-                    <h4 class="font-semibold mb-3">Controller Type</h4>
+                    <h4 class="font-semibold mb-3">Motor Type</h4>
                     @foreach ($motor_types as $motor_type)
                         <label class="flex items-center mb-2 text-sm">
                             <input type="checkbox" class="mr-2">

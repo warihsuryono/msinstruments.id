@@ -38,6 +38,16 @@ return new class extends Migration
         DB::table('product_images')->insert(['product_id' => 3, 'image' => 'product_images/01KXQPYDAY84XH3YJDN6M46ZED.jpg']);
         DB::table('product_images')->insert(['product_id' => 2, 'image' => 'product_images/01KXQQ0S8CADB57SJXHTKJ18JF.jpg']);
         DB::table('product_images')->insert(['product_id' => 10, 'image' => 'product_images/01KXQQ3VKRM8S5FK6NACSXWGHB.jpg']);
+        DB::table('product_images')->insert(['product_id' => 26, 'image' => 'product_images/01KXZC23EKXMV4AE2AZR3YHZ56.jpg']);
+        DB::table('product_images')->insert(['product_id' => 12, 'image' => 'product_images/01KXZCSZS0JVYK6X0Z5XAXYD6H.jpg']);
+        DB::table('product_images')->insert(['product_id' => 11, 'image' => 'product_images/01KXZCXWDTRT4CTZANQP8VF735.jpg']);
+        DB::table('product_images')->insert(['product_id' => 15, 'image' => 'product_images/01KXZD83MHV5QM1KYDF5S2T51S.jpg']);
+        DB::table('product_images')->insert(['product_id' => 16, 'image' => 'product_images/01KXZDE6GHSCPKQNQ962S44694.jpg']);
+        DB::table('product_images')->insert(['product_id' => 17, 'image' => 'product_images/01KXZDGXFPJYVW49NX290SHHRZ.jpg']);
+        DB::table('product_images')->insert(['product_id' => 18, 'image' => 'product_images/01KXZE7G5YJB45P2QG5AYTF2G8.jpg']);
+        DB::table('product_images')->insert(['product_id' => 18, 'image' => 'product_images/01KXZE7VKK9PY49534EBPJ4TCK.jpg']);
+        DB::table('product_images')->insert(['product_id' => 19, 'image' => 'product_images/01KXZEA214CDHQS6Q86KY8TTVR.jpg']);
+        DB::table('product_images')->insert(['product_id' => 13, 'image' => 'product_images/01KXZEF1RJK311G9Y9D0Z5SBFD.jpg']);
     }
 
     /**
